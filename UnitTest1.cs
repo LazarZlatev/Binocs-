@@ -2,15 +2,22 @@ namespace Binocs
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        public class TestData
         {
+            public DateTime StartDate { get; set; }
         }
 
+        private static readonly TestData[] _testData = new[]{
+             new TestData(){ StartDate = DateTime.Today },
+             new TestData(){ StartDate = DateTime.Today.AddDays(1)},
+             new TestData(){ StartDate = DateTime.Today.AddDays(7)},
+        };
+
         [Test]
-        public void Test1()
+        public void EndToEndSeleniumTest([ValueSource(nameof(_testData))] TestData testData)
         {
-            Assert.Pass();
+            // Mock data and assumptions
+            Console.WriteLine(testData.StartDate);
         }
     }
 }
