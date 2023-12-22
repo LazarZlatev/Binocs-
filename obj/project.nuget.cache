@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rW74pOib5+1MIEdBC6b5tU6aCXuA2hHNXLr0gkJXp/GdXDo6XZhImuVM9eSEGkCeD5fvRsVKZnKjqyW90khxnQ==",
+  "dgSpecHash": "BVaXiHcWS/y6wEyMhvitip0p93x9DiSbidG5i5LqRjlIs5vYiJ/c6kTCnUn5aUWAcwKzz3aA8WFr+RGmoCKi0g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Redmi\\source\\repos\\Binocs\\Binocs.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,9 @@
     "C:\\Users\\Redmi\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
     "C:\\Users\\Redmi\\.nuget\\packages\\nunit.analyzers\\3.6.1\\nunit.analyzers.3.6.1.nupkg.sha512",
     "C:\\Users\\Redmi\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512",
+    "C:\\Users\\Redmi\\.nuget\\packages\\selenium.support\\4.16.2\\selenium.support.4.16.2.nupkg.sha512",
+    "C:\\Users\\Redmi\\.nuget\\packages\\selenium.webdriver\\4.16.2\\selenium.webdriver.4.16.2.nupkg.sha512",
+    "C:\\Users\\Redmi\\.nuget\\packages\\selenium.webdriver.chromedriver\\120.0.6099.10900\\selenium.webdriver.chromedriver.120.0.6099.10900.nupkg.sha512",
     "C:\\Users\\Redmi\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []
