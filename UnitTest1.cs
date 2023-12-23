@@ -1,6 +1,9 @@
+
+using FluentAssertions;
+
 namespace Binocs
 {
-    public class Tests
+    public class Tests: TestBase
     {
         public class TestData
         {
@@ -16,8 +19,15 @@ namespace Binocs
         [Test]
         public void EndToEndSeleniumTest([ValueSource(nameof(_testData))] TestData testData)
         {
-            // Mock data and assumptions
-            Console.WriteLine(testData.StartDate);
+            //MockData.SetupMockData();
+
+            //// Trigger the algorithm
+            //AlgorithmRunner.RunAlgorithm(testData);
+
+            //// Validate UI output
+            //Assert.IsTrue(UIValidator.ValidateScheduleTable());
+
+            testData.Should().Be(null);
         }
     }
 }
