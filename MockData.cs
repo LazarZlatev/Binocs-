@@ -7,10 +7,16 @@ namespace Binocs
         public static Mock<IUser> SetupMockData(DateTime startDate)
         {
             var user = new Mock<IUser>();
-            user.SetupGet(p => p.JobId).Returns(1);
-            user.SetupGet(p => p.TaskId).Returns(10);
-            user.SetupGet(p => p.ResourceId).Returns(100);
-            user.SetupGet(p => p.ScheduleDate).Returns(startDate);
+            user.Setup(p => p.ResourceId).Returns(100);
+            user.Setup(p => p.ScheduleDate).Returns(startDate);
+
+            user.Setup(p => p.Jobs).Returns(new List<Job>
+            {
+                new Job { Id = 1, Tasks = new List<Task> {
+                    new Task { Id = 1 },
+                    new Task { Id = 2 }}
+                }
+            });
 
             return user;
         }
