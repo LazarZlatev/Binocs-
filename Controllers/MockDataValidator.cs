@@ -4,7 +4,7 @@ using Moq;
 
 namespace Binocs.Controllers
 {
-    public static class UIValidator
+    public static class MockDataValidator
     {
         public static void ValidateScheduleTable(Mock<IUser> user, string startDate)
         {

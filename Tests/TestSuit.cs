@@ -14,8 +14,10 @@ namespace Binocs.Tests
             // Trigger the algorithm
             var algorithmResult = AlgorithmRunner.RunAlgorithm(Date.StartDate, WebDriver);
 
+            // Validate Mock output
+            MockDataValidator.ValidateScheduleTable(user, Date.StartDate);
+
             // Validate UI output
-            UIValidator.ValidateScheduleTable(user, Date.StartDate);
             algorithmResult.ValidateAlgorithmRun(Date.StartDate);
         }
 

@@ -1,11 +1,13 @@
-﻿using OpenQA.Selenium;
+﻿using Binocs.Utilities;
+using FluentAssertions;
+using OpenQA.Selenium;
 
 namespace Binocs.PageObjects
 {
     public class AlgorithmResultPage
     {
         private IWebDriver webdriver;
-        private By ResultRow = By.Id("login");
+        private By ResultRow = By.XPath("(.//*[@id='search']/div/div/div)[1]");
 
         public AlgorithmResultPage(IWebDriver webdriver)
         {
@@ -14,7 +16,7 @@ namespace Binocs.PageObjects
 
         internal void ValidateAlgorithmRun(string startDate)
         {
-           // WaitUtilities.WaitForElementIsVisible(webdriver, ResultRow);
+           WaitUtilities.WaitForElementAreVisible(webdriver, ResultRow).Should().NotBeEmpty();
         }
     }
 }
