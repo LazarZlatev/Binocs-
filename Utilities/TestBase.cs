@@ -1,14 +1,16 @@
 ﻿using OpenQA.Selenium;
 using System.Text;
 using OpenQA.Selenium.Chrome;
+using Binocs.PageObjects;
+using System.Diagnostics;
 
-namespace Binocs
+namespace Binocs.Utilities
 {
     public abstract class TestBase
     {
-        private readonly By logOut = By.Id("logout");
-        private readonly By userName = By.Id("UserName");
         protected IWebDriver WebDriver;
+        protected AlgorithmRunnerPage? Login;
+        private readonly string Url = "https://www.google.com/";
 
         [SetUp]
         public void BaseTestInitialize()
@@ -19,11 +21,35 @@ namespace Binocs
 
         private void CreateWebDriver()
         {
-            WebDriver = new ChromeDriver();
+            var chromeOptions = new ChromeOptions();
+            var arguments = new[]
+            {
+                "--allow-insecure-localhost",
+                "--disable-extensions",
+                "--disable-internal-flash",
+                "--disable-infobars",
+                "--disable-plugins-discovery",
+                "--window-size=1920,1080",
+                "--test-type",
+				//"--headless"
+			};
+            chromeOptions.AddArguments(arguments);
+            chromeOptions.AddUserProfilePreference("intl.accept_languages", "en-us");
+            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            chromeOptions.AddUserProfilePreference("profile.default_content_setting_values.cookies", 2);
+
+
+            // Auto Save for files
+            chromeOptions.AddUserProfilePreference("download.default_directory", Path.GetTempPath());
+
+            WebDriver = new ChromeDriver(chromeOptions);
+            WebDriver.Navigate().GoToUrl(Url);
             WebDriver.Manage().Window.Maximize();
 
             Log($"\nFinished test: {TestContext.CurrentContext.Test.Name}");
         }
+
+
 
         [TearDown]
         public void BaseTestCleanup()
@@ -47,13 +73,17 @@ namespace Binocs
 
                 image.SaveAsFile(path);
             }
-            //WaitUtilities.WaitForElementIsClickable(WebDriver, logOut).Click();
-            //WaitUtilities.WaitForElementIsVisible(WebDriver, userName);
 
             // Close Browser
             WebDriver.Close();
             WebDriver.Quit();
             WebDriver.Dispose();
+
+            Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
+            foreach (var chromeDriverProcess in chromeDriverProcesses)
+            {
+                chromeDriverProcess.Kill();
+            }
         }
         private static void Log(string message)
         {

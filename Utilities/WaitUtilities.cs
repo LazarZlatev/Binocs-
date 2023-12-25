@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 
-namespace Binocs
+namespace Binocs.Utilities
 {
     public static class WaitUtilities
     {

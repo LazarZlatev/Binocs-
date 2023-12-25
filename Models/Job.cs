@@ -1,4 +1,4 @@
-﻿namespace Binocs
+﻿namespace Binocs.Models
 {
     public class Job
     {

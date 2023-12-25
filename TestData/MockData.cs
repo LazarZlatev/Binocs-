@@ -1,10 +1,12 @@
-﻿using Moq;
+﻿using Binocs.Models;
+using Moq;
+using Task = Binocs.Models.Task;
 
-namespace Binocs
+namespace Binocs.TestData
 {
     public static class MockData
     {
-        public static Mock<IUser> SetupMockData(DateTime startDate)
+        public static Mock<IUser> SetupMockData(string startDate)
         {
             var user = new Mock<IUser>();
             user.Setup(p => p.ResourceId).Returns(100);
