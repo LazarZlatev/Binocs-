@@ -22,9 +22,8 @@ namespace Binocs.Tests
         }
 
         public static readonly TestingData[] MyTestSource = new[]{
-             new TestingData(){ StartDate = DateTime.Now.ToString("dddd, dd MMMM yyyy")},
-             new TestingData(){ StartDate = DateTime.Now.Add(TimeSpan.FromDays(1)).ToString("dddd, dd MMMM yyyy")},
-             new TestingData(){ StartDate = DateTime.Now.Add(TimeSpan.FromDays(7)).ToString("dddd, dd MMMM yyyy")},
+             new TestingData(){ StartDate = DateTime.Now.ToString("dd MMMM yyyy")},
+             new TestingData(){ StartDate = DateTime.Now.Add(TimeSpan.FromDays(1)).ToString("dd MMMM yyyy")},
         };
     }
 }

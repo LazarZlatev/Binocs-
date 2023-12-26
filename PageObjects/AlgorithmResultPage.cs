@@ -7,7 +7,8 @@ namespace Binocs.PageObjects
     public class AlgorithmResultPage
     {
         private IWebDriver webdriver;
-        private By ResultRow = By.XPath("(.//*[@id='search']/div/div/div)[1]");
+        private By ResultRows = By.XPath(".//*[@id='search']/div/div/div");
+        private string ResultRowValue = ".//div[@id='rso']//a//h3[contains(text(),'{0}')]";
 
         public AlgorithmResultPage(IWebDriver webdriver)
         {
@@ -16,7 +17,9 @@ namespace Binocs.PageObjects
 
         internal void ValidateAlgorithmRun(string startDate)
         {
-           WaitUtilities.WaitForElementAreVisible(webdriver, ResultRow).Should().NotBeEmpty();
+           WaitUtilities.WaitForElementsAreVisible(webdriver, ResultRows).Should().NotBeEmpty();
+           var elemList = WaitUtilities.WaitPresenceOfElements(webdriver, By.XPath(string.Format(ResultRowValue, startDate)));
+           elemList.ForEach(elem => { elem.Text.Should().Contain(startDate); });
         }
     }
 }
