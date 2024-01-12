@@ -9,12 +9,11 @@ namespace Binocs.Tests
         [TestCase("COVID-19 (coronavirus)")]
         public void EndToEndSeleniumTest(string value)
         {
-            // Trigger the algorithm
+            // Act
             var algorithmResult = AlgorithmRunner.RunAlgorithm(value, WebDriver);
 
-            // Validate UI output
+            // Assert
             algorithmResult.ValidateAlgorithmRun(value);
         }
-
     }
 }
