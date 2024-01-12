@@ -6,11 +6,9 @@ namespace Binocs.ApiTest
     internal class ApiTests
     {
         [Test]
-        public async Task APITest()
+        [TestCase("https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5")]
+        public async Task APITest(string url)
         {
-            //Arrange
-            var url = "https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5";
-
             // Trigger the algorithm
             var result = await CurrencyController.GetCurrencies(url);
 
