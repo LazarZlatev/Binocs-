@@ -1,6 +1,5 @@
 using Binocs.Controllers;
 using Binocs.Utilities;
-using FluentAssertions;
 
 namespace Binocs.Tests
 {
