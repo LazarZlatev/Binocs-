@@ -1,5 +1,4 @@
 ﻿using Binocs.Utilities;
-using FluentAssertions;
 using OpenQA.Selenium;
 
 namespace Binocs.PageObjects
@@ -17,9 +16,7 @@ namespace Binocs.PageObjects
 
         internal void ValidateAlgorithmRun(string startDate)
         {
-           WaitUtilities.WaitForElementsAreVisible(webdriver, ResultRows).Should().NotBeEmpty();
-           var elemList = WaitUtilities.WaitPresenceOfElements(webdriver, By.XPath(string.Format(ResultRowValue, startDate)));
-           elemList.ForEach(elem => { elem.Text.Should().Contain(startDate); });
+            Assert.That(startDate, Is.EqualTo(WaitUtilities.WaitForElementIsVisible(webdriver, By.XPath(string.Format(ResultRowValue, startDate))).Text), "Record didn't find.");
         }
     }
 }

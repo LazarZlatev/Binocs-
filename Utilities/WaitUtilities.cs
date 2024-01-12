@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
-using System.Collections.ObjectModel;
 
 namespace Binocs.Utilities
 {
@@ -20,18 +19,6 @@ namespace Binocs.Utilities
         {
             var wait = new WebDriverWait(driver, PageLoadTimeout);
             return wait.Until(ExpectedConditions.ElementIsVisible(by));
-        }
-
-        public static ReadOnlyCollection <IWebElement> WaitPresenceOfElements(IWebDriver driver, By by)
-        {
-            var wait = new WebDriverWait(driver, PageLoadTimeout);
-            return wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(by));
-        }
-
-        public static ReadOnlyCollection<IWebElement> WaitForElementsAreVisible(IWebDriver driver, By by)
-        {
-            var wait = new WebDriverWait(driver, PageLoadTimeout);
-            return wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(by));
         }
 
     }
